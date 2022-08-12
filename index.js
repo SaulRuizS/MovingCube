@@ -4,34 +4,40 @@ const canvas = document.createElement('canvas');
 
 body.appendChild(canvas);
 
-canvas.height = 400;
-canvas.width = 400;
+canvas.height = 800;
+canvas.width = 800;
 
-const ctx = canvas.getContext('2d');
+const cube2d = () => {
+    const ctx2d = canvas.getContext('2d');
 
-ctx.lineWidth = 4;
+    ctx2d.lineWidth = 1;
 
-ctx.fillRect(10, 10, 110, 110);
+    ctx2d.beginPath();
+    ctx2d.moveTo(200, 200);
+    ctx2d.lineTo(200, 300);
+    ctx2d.lineTo(300, 300);
+    ctx2d.lineTo(340, 280);
+    ctx2d.lineTo(340, 180);
+    ctx2d.lineTo(240, 180);
+    ctx2d.lineTo(200, 200);
+    ctx2d.lineTo(300, 200);
+    ctx2d.lineTo(340, 180);
+    ctx2d.moveTo(300, 200);
+    ctx2d.lineTo(300, 300);
+    ctx2d.moveTo(240, 180);
+    ctx2d.lineTo(240, 280);
+    ctx2d.lineTo(340, 280);
+    ctx2d.moveTo(240, 280);
+    ctx2d.lineTo(200, 300);
+    ctx2d.stroke();
+}
 
-ctx.clearRect(40, 40, 200, 200);
+// cube2d();
 
-ctx.strokeRect(70, 70, 300, 300);
+const cube3d = () => {
+    let ctxWebl = canvas.getContext('webgl');
 
-ctx.beginPath();
-ctx.moveTo(200, 200);
-ctx.lineTo(200, 300);
-ctx.lineTo(300, 300);
-ctx.lineTo(340, 280);
-ctx.lineTo(340, 180);
-ctx.lineTo(240, 180);
-ctx.lineTo(200, 200);
-ctx.lineTo(300, 200);
-ctx.lineTo(340, 180);
-ctx.lineTo(300, 200);
-ctx.lineTo(300, 300);
-// ctx.closePath();
-ctx.stroke();
+    let x = 400;
+    let y = 400;
 
-// alert(canvas.height);
-// console.log(canvas.height);
-// console.log(canvas.width);
+}
