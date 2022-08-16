@@ -34,10 +34,17 @@ const cube2d = () => {
 
 // cube2d();
 
-const cube3d = () => {
+const main = () => {
     let ctxWebl = canvas.getContext('webgl');
 
-    let x = 400;
-    let y = 400;
+    if(ctxWebl === null) {
+        alert('Unable to initialize WebGL. Your browser or machine may not support it.');
+    }
+
+    ctxWebl.clearColor(0.3, 0.9, 0.1, 1.0);
+    ctxWebl.clear(ctxWebl.COLOR_BUFFER_BIT);
+
 
 }
+
+window.onload = main;
