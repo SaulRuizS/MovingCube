@@ -34,17 +34,36 @@ const cube2d = () => {
 
 // cube2d();
 
+const loadShader = (ctx, shaderType, source) => {
+    
+    const shader = ctx.createShader(shaderType);
+    ctx.shaderSource(shader, source);
+    ctx.compileShader(shader);
+
+    return shader;
+}
+
+const initShader = (ctx, vShaderSource, fShaderSource) => {
+
+    const vertexShader = loadShader(ctx, ctx.VERTEX_SHADER, vShaderSource);
+    const fragmentShader = loadShader(ctx, ctx.FRAGMENT_SHADER, fShaderSource);
+
+    const shaderProgram = ctx.createProgram();
+    ctx.attachShader(shaderProgram, vertexShader);
+    ctx.attachShader(shaderProgram, fragmentShader);
+    ctx.linkProgram(shaderProgram);
+
+    return shaderProgram;
+}
+
 const main = () => {
     let ctxWebl = canvas.getContext('webgl');
 
     if(ctxWebl === null) {
         alert('Unable to initialize WebGL. Your browser or machine may not support it.');
     }
-
     ctxWebl.clearColor(0.3, 0.9, 0.1, 1.0);
     ctxWebl.clear(ctxWebl.COLOR_BUFFER_BIT);
-
-
 }
 
 window.onload = main;
