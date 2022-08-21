@@ -1,8 +1,7 @@
-const body = document.querySelector('body');
+import * as THREE from 'three';
 
-const canvas = document.createElement('canvas');
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / innerHeight, 0.1, 1000);
 
-canvas.height = 800;
-canvas.width = 800;
-
-body.appendChild(canvas);
+const renderer = new THREE.WebGLRenderer();
+renderer.setSize(window.innerWidth, window.innerHeight, document.body.appendChild(renderer.domElement));
